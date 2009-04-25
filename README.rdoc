@@ -5,7 +5,7 @@ the XEP-0030 spec).
 
 === About DNS Service Discovery (DNS-SD)
 
-* http://www.dns-sd.org/
+* http://www.dns-sd.org
 * http://en.wikipedia.org/wiki/Bonjour_(software)
 
 === About XMPP Service Discovery (XEP-0030)
@@ -28,9 +28,9 @@ as follows:
 == Requirements
 
 * DNSSD
-  * http://rubyforge.org/projects/dnssd/
+  * http://rubyforge.org/projects/dnssd
 * XMPP4R
-  * http://home.gna.org/xmpp4r/
+  * http://home.gna.org/xmpp4r
 
 
 == Installation
