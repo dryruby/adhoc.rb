@@ -3,20 +3,20 @@
 
 GEMSPEC = Gem::Specification.new do |gem|
   gem.name               = 'adhoc'
-  gem.version            = '0.0.0'
-  gem.date               = '2009-04-25'
-  gem.homepage           = 'http://github.com/bendiken/adhoc'
+  gem.version            = '0.0.1'
+  gem.date               = '2009-12-20'
+  gem.homepage           = 'http://adhoc.rubyforge.org/'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
-  gem.summary            = 'Ad-hoc service discovery and routing for DNS-SD (aka Bonjour) and XMPP.'
-  gem.description        = ''
+  gem.summary            = 'Ad-hoc service discovery and routing for DNS-SD (aka Bonjour), XMPP and AMQP.'
+  gem.description        = gem.summary
   gem.rubyforge_project  = 'adhoc'
 
-  gem.author             = 'Arto Bendiken'
+  gem.authors            = ['Arto Bendiken']
   gem.email              = 'arto.bendiken@gmail.com'
 
   gem.platform           = Gem::Platform::RUBY
-  gem.files              = %w(LICENSE README README.rdoc Rakefile VERSION bin/adhoc lib/adhoc.rb lib/adhoc/dnssd.rb lib/adhoc/version.rb lib/adhoc/xmpp.rb)
-  gem.files             -= %w(README.rdoc) # only for GitHub
+  gem.files              = %w(AUTHORS README README.md Rakefile UNLICENSE VERSION bin/adhoc lib/adhoc.rb lib/adhoc/amqp.rb lib/adhoc/dnssd.rb lib/adhoc/version.rb lib/adhoc/xmpp.rb)
+  gem.files             -= %w(README.md) # only for GitHub
   gem.bindir             = %q(bin)
   gem.executables        = %w(adhoc)
   gem.default_executable = gem.executables.first
@@ -27,8 +27,9 @@ GEMSPEC = Gem::Specification.new do |gem|
 
   gem.required_ruby_version      = '>= 1.8.2'
   gem.requirements               = []
-  gem.add_development_dependency 'rakefile'
-  #gem.add_runtime_dependency     'dnssd',  '>= 0.7.1'
-  #gem.add_runtime_dependency     'xmpp4r', '>= 0.4'
+  gem.add_development_dependency 'bendiken-rakefile' # http://github.com/bendiken/rakefile
+  #gem.add_runtime_dependency    'dnssd',  '>= 1.3.1'
+  #gem.add_runtime_dependency    'xmpp4r', '>= 0.5'
+  #gem.add_runtime_dependency    'amqp',   '>= 0.6.5'
   gem.post_install_message       = nil
 end
