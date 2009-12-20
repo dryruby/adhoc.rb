@@ -6,7 +6,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.version            = '0.0.0'
   gem.date               = '2009-04-25'
   gem.homepage           = 'http://github.com/bendiken/adhoc'
-  gem.license            = 'MIT' if gem.respond_to?(:license=)
+  gem.license            = 'Public Domain' if gem.respond_to?(:license=)
   gem.summary            = 'Ad-hoc service discovery and routing for DNS-SD (aka Bonjour) and XMPP.'
   gem.description        = ''
   gem.rubyforge_project  = 'adhoc'
