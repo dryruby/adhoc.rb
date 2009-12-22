@@ -31,6 +31,16 @@ Examples
       puts service.to_uri
     end
 
+### Discovering services from the command line
+
+    % adhoc discover http sftp ssh
+    Discovering services: http, sftp, ssh...
+    <sftp://macbook.local.:22> My MacBook
+    <ssh://macbook.local.:22> My MacBook
+    <http://macpro.local./> My Mac Pro
+    <sftp://macpro.local.:22> My Mac Pro
+    <ssh://macpro.local.:22> My Mac Pro
+
 Documentation
 -------------
 
