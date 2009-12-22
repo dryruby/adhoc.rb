@@ -3,8 +3,8 @@
 
 GEMSPEC = Gem::Specification.new do |gem|
   gem.name               = 'adhoc'
-  gem.version            = '0.0.1'
-  gem.date               = '2009-12-20'
+  gem.version            = '0.1.0'
+  gem.date               = '2009-12-22'
   gem.homepage           = 'http://adhoc.rubyforge.org/'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
   gem.summary            = 'Ad-hoc service discovery and routing for DNS-SD (aka Bonjour), XMPP and AMQP.'
@@ -15,7 +15,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.email              = 'arto.bendiken@gmail.com'
 
   gem.platform           = Gem::Platform::RUBY
-  gem.files              = %w(AUTHORS README README.md Rakefile UNLICENSE VERSION bin/adhoc lib/adhoc.rb lib/adhoc/amqp.rb lib/adhoc/dnssd.rb lib/adhoc/version.rb lib/adhoc/xmpp.rb)
+  gem.files              = %w(AUTHORS README README.md Rakefile UNLICENSE VERSION bin/adhoc) + Dir.glob('lib/**/*.rb')
   gem.files             -= %w(README.md) # only for GitHub
   gem.bindir             = %q(bin)
   gem.executables        = %w(adhoc)
