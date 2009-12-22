@@ -27,8 +27,8 @@ GEMSPEC = Gem::Specification.new do |gem|
 
   gem.required_ruby_version      = '>= 1.8.2'
   gem.requirements               = []
-  gem.add_development_dependency 'bendiken-rakefile' # http://github.com/bendiken/rakefile
-  #gem.add_runtime_dependency    'dnssd',  '>= 1.3.1'
+  gem.add_development_dependency 'rspec', '>= 1.2.9'
+  gem.add_runtime_dependency     'dnssd',  '>= 1.3.1'
   #gem.add_runtime_dependency    'xmpp4r', '>= 0.5'
   #gem.add_runtime_dependency    'amqp',   '>= 0.6.5'
   gem.post_install_message       = nil
