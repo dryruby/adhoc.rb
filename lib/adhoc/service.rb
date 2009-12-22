@@ -15,9 +15,13 @@ module Adhoc
       const_get(:DNSSD_TYPE)
     end
 
-    def initialize(result = nil)
-      @result = result
+    attr_accessor :reply
+
+    def initialize(reply = nil)
+      @reply = reply
     end
+
+    def name()   reply.name end
 
     def to_url() to_uri end
 
@@ -25,7 +29,7 @@ module Adhoc
 
     def to_s
       scheme = self.class.name.split(':').last.downcase
-      "#{scheme}://#{@result.target}:#{@result.port}"
+      "#{scheme}://#{reply.target}:#{reply.port}"
     end
 
     ##
@@ -58,9 +62,9 @@ module Adhoc
       DNSSD_TYPE = "_http._tcp."
 
       def to_s
-        url = "http://#{@result.target}"
-        url << ":#{@result.port}" unless @result.port == 80
-        url << (@result.text_record["path"] || "/")
+        url = "http://#{reply.target}"
+        url << ":#{reply.port}" unless reply.port == 80
+        url << (reply.text_record["path"] || "/")
       end
     end
 
