@@ -13,6 +13,24 @@ the XEP-0030 spec).
 
 * <http://xmpp.org/extensions/xep-0030.html>
 
+Examples
+--------
+
+    require 'adhoc'
+
+### Discovering HTTP services
+
+    Adhoc.discover!(:http) do |service|
+      puts service.to_uri
+    end
+
+### Discovering services with a timeout
+
+    # Print anything we can discover within 3 seconds:
+    Adhoc.discover!(:http, :timeout => 3.0) do |service|
+      puts service.to_uri
+    end
+
 Documentation
 -------------
 
