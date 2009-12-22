@@ -1,3 +1,33 @@
 #!/usr/bin/env ruby -rubygems
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib')))
 require 'adhoc'
+
+abort "Usage: #{File.basename($0)} command [args...]" if ARGV.empty?
+
+module Adhoc
+  class CLI
+    def discover(*services)
+      puts "Discovering services: #{services.join(', ')}..."
+      queries = []
+      history = {}
+      services.each do |service|
+        queries << Adhoc.discover(service) do |result|
+          unless history.has_key?(result.to_s)
+            puts "<#{result.to_url}> #{result.name}"
+            history[result.to_s] = true
+          end
+        end
+      end
+      [:INT, :TERM].each do |signal|
+        trap signal do queries.each { |query| query.stop }; puts; exit end
+      end
+      sleep
+    end
+
+    def method_missing(command, *args, &block)
+      abort "#{File.basename($0)}: unknown command `#{command}'"
+    end
+  end
+end
+
+Adhoc::CLI.new.send(ARGV.shift, *ARGV)
