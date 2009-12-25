@@ -7,7 +7,9 @@ abort "Usage: #{File.basename($0)} command [args...]" if ARGV.empty?
 module Adhoc
   class CLI
     def discover(*services)
+      Adhoc::Service.each { |klass| services << klass.to_sym } if services.empty?
       puts "Discovering services: #{services.join(', ')}..."
+
       queries = []
       history = {}
       services.each do |service|
@@ -22,6 +24,7 @@ module Adhoc
           warn "WARNING: skipping unknown protocol `#{service}'"
         end
       end
+
       [:INT, :TERM].each do |signal|
         trap signal do queries.each { |query| query.stop }; puts; exit end
       end

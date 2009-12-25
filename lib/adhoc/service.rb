@@ -2,6 +2,16 @@ module Adhoc
   ##
   # Adhoc service.
   class Service
+    ##
+    # Enumerates known service types.
+    # @yield [klass]
+    # @yieldparam [Class]
+    def self.each(&block)
+      @@subclasses.each { |klass| block.call(klass) }
+    end
+
+    ##
+    # @return [Class]
     def self.for(type)
       case type
         when Symbol  then const_get(type.to_s.upcase)
@@ -11,8 +21,16 @@ module Adhoc
       end
     end
 
+    ##
+    # @return [String]
     def self.type
       const_get(:DNSSD_TYPE)
+    end
+
+    ##
+    # @return [Symbol]
+    def self.to_sym
+      name.to_s.split(':').last.downcase.to_sym
     end
 
     attr_accessor :reply
@@ -31,6 +49,15 @@ module Adhoc
       scheme = self.class.name.split(':').last.downcase
       "#{scheme}://#{reply.target}:#{reply.port}"
     end
+
+    protected
+
+      @@subclasses = [] #:nodoc:
+
+      def self.inherited(child) #:nodoc:
+        @@subclasses << child
+        super
+      end
 
     ##
     # Advanced Message Queuing Protocol (AMQP)
