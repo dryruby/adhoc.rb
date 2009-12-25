@@ -33,6 +33,12 @@ module Adhoc
     end
 
     ##
+    # Advanced Message Queuing Protocol (AMQP)
+    class AMQP < Service
+      DNSSD_TYPE = "_amqp._tcp."
+    end
+
+    ##
     # Apple File Sharing (AFP)
     class AFP < Service
       DNSSD_TYPE = "_afpovertcp._tcp."
@@ -75,6 +81,42 @@ module Adhoc
     end
 
     ##
+    # Internet Message Access Protocol (IMAP)
+    class IMAP < Service
+      DNSSD_TYPE = "_imap._tcp."
+    end
+
+    ##
+    # Lightweight Directory Access Protocol (LDAP)
+    class LDAP < Service
+      DNSSD_TYPE = "_ldap._tcp."
+    end
+
+    ##
+    # Network File System (NFS)
+    class NFS < Service
+      DNSSD_TYPE = "_nfs._tcp."
+    end
+
+    ##
+    # Network Time Protocol (NTP)
+    class NTP < Service
+      DNSSD_TYPE = "_ntp._tcp."
+    end
+
+    ##
+    # Post Office Protocol, Version 3 (POP3)
+    class POP3 < Service
+      DNSSD_TYPE = "_pop3._tcp."
+    end
+
+    ##
+    # Session Initiation Protocol (SIP)
+    class SIP < Service
+      DNSSD_TYPE = "_sip._tcp."
+    end
+
+    ##
     # Server Message Block (SMB; aka Samba)
     class SMB < Service
       DNSSD_TYPE = "_smb._tcp."
@@ -87,9 +129,29 @@ module Adhoc
     end
 
     ##
+    # SPARQL Protocol and RDF Query Language (SPARQL)
+    class SPARQL < Service
+      DNSSD_TYPE = "_sparql._tcp."
+    end
+
+    ##
     # Secure Shell (SSH)
     class SSH < Service
       DNSSD_TYPE = "_ssh._tcp."
+    end
+
+    ##
+    # Trivial File Transfer Protocol (TFTP)
+    class TFTP < Service
+      DNSSD_TYPE = "_tftp._tcp."
+    end
+
+    ##
+    # Extensible Messaging and Presence Protocol (XMPP)
+    #
+    # @see http://tools.ietf.org/html/rfc3920#section-14.3
+    class XMPP < Service
+      DNSSD_TYPE = "_xmpp-client._tcp."
     end
   end
 end
