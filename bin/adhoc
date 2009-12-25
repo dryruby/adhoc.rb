@@ -11,11 +11,15 @@ module Adhoc
       queries = []
       history = {}
       services.each do |service|
-        queries << Adhoc.discover(service) do |result|
-          unless history.has_key?(result.to_s)
-            puts "<#{result.to_url}> #{result.name}"
-            history[result.to_s] = true
+        begin
+          queries << Adhoc.discover(service) do |result|
+            unless history.has_key?(result.to_s)
+              puts "<#{result.to_url}> #{result.name}"
+              history[result.to_s] = true
+            end
           end
+        rescue NameError => e
+          warn "WARNING: skipping unknown protocol `#{service}'"
         end
       end
       [:INT, :TERM].each do |signal|
